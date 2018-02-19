@@ -1,0 +1,19 @@
+#!/usr/bin/env python
+import os
+import datetime
+
+def greet(msg):
+	os.system("notify-send 'Hai Good "+msg+"'")
+	os.system("gtts-cli 'Good "+ msg +"' -l 'en-us' -o hello.mp3 && mpg123 hello.mp3")
+
+now = datetime.datetime.now()
+if now.hour < 12:
+	# print('Good morning.')
+	greet('Morning');
+elif 12 <= now.hour < 18:
+	# print('Good afternoon.')
+	greet('Afternoon');
+else:
+	# print('Good evening.')
+	greet('Evening');
+
